@@ -6,28 +6,32 @@ using UnityEngine;
 
 namespace Baz_geluk9.HKU
 {
-    // [Serializable] todo: check if MonoBehaviour is needed
+    // [Serializable] // todo: check if MonoBehaviour is needed
     public sealed class QuickTimeEvent : MonoBehaviour
     {
-        
-        [SerializeField] private KeyCodeQTE keyToPress;
-        
+        [HideInInspector] public BaseQuickTimeEventHolder parent;
+
+        [Tooltip("The assigned key to press to succeed the quick time event.")]
+        public KeyCodeQTE keyToPress;
+
         [Tooltip("The time assigned to the timer.")]
-        [SerializeField, Range(0, 10)] private float QteTime = 5;
+        [Range(0, 10)] public float qteTime = 5;
 
         private float _timer;
         private bool _isStarted;
 
-        private void Awake() => _timer = QteTime;
+        private void Awake()
+        {
+            // todo: key image
+        }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) StartQte();
-
             if (!_isStarted)
                 return;
             
-            if (_timer <= 0)
+            if (parent is QuickTimeEventSystem
+                && _timer <= 0)
             {
                 // todo: Failed QTE
                 Debug.Log("You lose QTE");
@@ -41,10 +45,21 @@ namespace Baz_geluk9.HKU
                 StopQte();
             }
             
-            _timer -= Time.deltaTime;
+            if (parent is QuickTimeEventSystem)
+                _timer -= Time.deltaTime;
         }
 
-        public void StartQte() => _isStarted = true;
-        private void StopQte() => _isStarted = false;
+        public void StartQte()
+        {
+            if (parent is QuickTimeEventSystem)
+                _timer = qteTime;
+            
+            _isStarted = true;
+        }
+
+        private void StopQte()
+        {
+            _isStarted = false;
+        }
     }
 }

@@ -5,9 +5,8 @@ using UnityEngine;
 
 namespace Baz_geluk9.HKU
 {
-    [Serializable]
-    public sealed class QuickTimeEventGroup
+    public sealed class QuickTimeEventGroup : BaseQuickTimeEventHolder
     {
-        public QuickTimeEvent[] quickTimeEvents = {};
+        
     }
 }

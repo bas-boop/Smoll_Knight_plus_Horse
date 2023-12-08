@@ -7,13 +7,13 @@ namespace Baz_geluk9.HKU
         [StringValue("W")] W,
         [StringValue("A")] A,
         [StringValue("S")] S,
-        [StringValue("D")]  D,
+        [StringValue("D")] D,
         [StringValue("F")] F,
         [StringValue("E")] E,
         [StringValue("R")] R,
-        [StringValue("Q")]  Q,
+        [StringValue("Q")] Q,
         [StringValue("Z")] Z,
-        [StringValue("X")]  X,
+        [StringValue("X")] X,
         [StringValue("C")] C
     }
 }
