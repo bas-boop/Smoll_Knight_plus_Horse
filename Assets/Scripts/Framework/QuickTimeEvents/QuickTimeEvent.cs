@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace Baz_geluk9.HKU
 {
-    // [Serializable] // todo: check if MonoBehaviour is needed
     public sealed class QuickTimeEvent : MonoBehaviour
     {
         [HideInInspector] public BaseQuickTimeEventHolder parent;
