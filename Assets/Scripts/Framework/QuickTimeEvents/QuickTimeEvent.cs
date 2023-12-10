@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Baz_geluk9.Extensions;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Baz_geluk9.HKU
 {
@@ -14,8 +13,12 @@ namespace Baz_geluk9.HKU
         public KeyCodeQTE keyToPress;
 
         [Tooltip("The time assigned to the timer.")]
-        [Range(0, 10)] public float qteTime = 5;
+        [Range(0, 10)] private const float QTE_TIME = 5;
 
+        [Space]
+        [SerializeField] private UnityEvent onWin = new();
+        [SerializeField] private UnityEvent onLose = new();
+        
         private float _timer;
         private bool _isStarted;
 
@@ -32,18 +35,23 @@ namespace Baz_geluk9.HKU
             if (parent is QuickTimeEventSystem
                 && _timer <= 0)
             {
-                // todo: Failed QTE
-                Debug.Log("You lose QTE");
+                onLose?.Invoke();
+                StopQte();
+                return;
+            }
+            
+            foreach (KeyCodeQTE keyCode in Enum.GetValues(typeof(KeyCodeQTE)))
+            {
+                if (Input.GetAxis(keyCode.GetStringValue()) <= 0)
+                    continue;
+
+                UnityEvent unityEvent = keyCode != keyToPress ? onLose : onWin;
+                unityEvent?.Invoke();
+
                 StopQte();
                 return;
             }
 
-            if (Input.GetAxis(keyToPress.GetStringValue()) > 0)
-            {
-                Debug.Log("You won QTE");
-                StopQte();
-            }
-            
             if (parent is QuickTimeEventSystem)
                 _timer -= Time.deltaTime;
         }
@@ -51,8 +59,8 @@ namespace Baz_geluk9.HKU
         public void StartQte()
         {
             if (parent is QuickTimeEventSystem)
-                _timer = qteTime;
-            
+                _timer = QTE_TIME;
+
             _isStarted = true;
         }
 

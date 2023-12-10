@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Baz_geluk9.HKU
@@ -8,31 +6,9 @@ namespace Baz_geluk9.HKU
     {
         public QuickTimeEvent[] quickTimeEvents = {};
         
-        private float _timer;
-        private bool _isStarted;
-
-        private int _currentQteToCall;
-
-        /// <summary>
-        /// Misschien weg
-        /// </summary>
-        protected void Update()
-        {
-            if (!_isStarted)
-                return;
-            
-            quickTimeEvents[0].StartQte();
-        }
-
-        public void StartNextQTE()
-        {
-            if (quickTimeEvents.Length < _currentQteToCall)
-                return;
-
-            _isStarted = true;
-            quickTimeEvents[_currentQteToCall].StartQte();
-            _currentQteToCall++;
-        }
+        protected bool p_isStarted;
+        protected int p_successfulQte = -1;
+        protected int p_currentQteToCall;
 
         public void Init()
         {
@@ -41,5 +17,12 @@ namespace Baz_geluk9.HKU
                 qte.parent = this;
             }
         }
+
+        public void IncreaseSuccessful()
+        {
+            p_successfulQte++;
+        }
+
+        public abstract void StartNextQte();
     }
 }
