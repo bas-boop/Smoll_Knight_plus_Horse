@@ -514,13 +514,14 @@ namespace Baz_geluk9.Extensions
         #region Change Axis
 
         /// <summary>
-        /// Change the X vector of this Vector2
+        /// Change the X vector of this Vector2 in place.
         /// </summary>
         /// <param name="v">This vector2.</param>
         /// <param name="x">Target value for the X vector.</param>
-        public static Vector2 ChangeX(this Vector2 v, float x)
+        public static ref Vector2 ChangeX(ref this Vector2 v, float x)
         {
-            return new Vector2(x, v.y);
+            v.x = x;
+            return ref v;
         }
 
         /// <summary>

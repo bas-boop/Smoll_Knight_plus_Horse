@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quickTimeEvents:
   - {fileID: 1621940912}
-  quickTimeEventsGroup: {fileID: 207107815}
+  - {fileID: 1621940912}
 --- !u!4 &207107814
 Transform:
   m_ObjectHideFlags: 0
