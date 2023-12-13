@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 207107814}
   - component: {fileID: 207107813}
   - component: {fileID: 207107815}
+  - component: {fileID: 207107816}
   m_Layer: 0
   m_Name: QTE System
   m_TagString: Untagged
@@ -189,6 +190,21 @@ MonoBehaviour:
   - {fileID: 1664181570}
   - {fileID: 411444694}
   - {fileID: 411444694}
+--- !u!114 &207107816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207107812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238789ff856e9e547afd20a5797792cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 653392040096718708, guid: 44a2916bbf0a2374faf23d5794b2d474, type: 3}
+  - {fileID: 7819081797040592548, guid: f8b4afe5c9e66fe4f84aa01eb762be94, type: 3}
 --- !u!1 &411444693
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,9 +464,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 207107816}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.SpawnParticle, Assembly-CSharp
+        m_MethodName: SpawnParticles
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLose:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 207107816}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.SpawnParticle, Assembly-CSharp
+        m_MethodName: SpawnParticles
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1621940913
 Transform:
   m_ObjectHideFlags: 0
