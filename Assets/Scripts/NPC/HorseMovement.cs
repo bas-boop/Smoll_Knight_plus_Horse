@@ -11,17 +11,19 @@ namespace Baz_geluk9.HKU
         [SerializeField] private Rigidbody2D rigidbody;
         [SerializeField] private Transform player;
         [SerializeField, Range(0, -30)] private float speed;
+        [SerializeField] private Vector2 flyBackDirection;
         [SerializeField] private bool isAllowedToMove;
         
         [Space(20)]
                 
         [SerializeField] private UnityEvent onStartWalking = new();
         [SerializeField] private UnityEvent onStopWalking = new();
+        [SerializeField] private UnityEvent onFlyingBack = new();
 
         private void Update() // temp
         {
             if (Input.GetKeyDown(KeyCode.Space)) 
-                StartWalking();
+                StartWalking(false);
         }
 
         private void FixedUpdate()
@@ -33,9 +35,9 @@ namespace Baz_geluk9.HKU
             StopWalking();
         }
 
-        public void StartWalking()
+        public void StartWalking(bool hasWon)
         {
-            isAllowedToMove = true;
+            isAllowedToMove = hasWon;
             rigidbody.ChangeVelocityX(speed);
             onStartWalking?.Invoke();
         }
@@ -45,6 +47,13 @@ namespace Baz_geluk9.HKU
             isAllowedToMove = false;
             rigidbody.ChangeVelocityX(0);
             onStopWalking?.Invoke();
+        }
+
+        public void FlyBack()
+        {
+            rigidbody.AddForce(flyBackDirection);
+            rigidbody.gravityScale = 0.1f;
+            onFlyingBack?.Invoke();
         }
     }
 }

@@ -4,6 +4,14 @@ namespace Baz_geluk9.Extensions
 {
     public static class Rigidbody2DExtensions
     {
+        public static void ChangeVelocity(this Rigidbody2D rigidbody, Vector2 v)
+        {
+            Vector2 newVelocity = rigidbody.velocity;
+            newVelocity.ChangeX(v.x);
+            newVelocity.ChangeY(v.y);
+            rigidbody.velocity = newVelocity;
+        }
+        
         /// <summary>
         /// Change the X axis of the velocity of this Rigidbody2D.
         /// </summary>
