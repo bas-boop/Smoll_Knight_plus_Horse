@@ -24,5 +24,14 @@ namespace Baz_geluk9.HKU
         }
 
         public abstract void StartNextQte();
+        
+        public double GetSuccessfulQtePercentage()
+        {
+            if (quickTimeEvents.Length == 0)
+                return 0.0;
+            
+            double successPercentage = (double)(p_successfulQte + 1)/ quickTimeEvents.Length * 100.0;
+            return successPercentage;
+        }
     }
 }

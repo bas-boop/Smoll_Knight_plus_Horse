@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5534985658208124218}
   - component: {fileID: 2038575598405431469}
   - component: {fileID: 5472597086549795900}
+  - component: {fileID: 6765068478622511866}
   m_Layer: 0
   m_Name: Other horse
   m_TagString: Untagged
@@ -139,3 +140,29 @@ MonoBehaviour:
   onFlyingBack:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6765068478622511866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386691302518601279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3eb60bf5337764880dac7979c19edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horseType: 0
+  difficultyRanges:
+  - difficulty: 0
+    min: 0
+    max: 60
+  - difficulty: 1
+    min: 30
+    max: 60
+  - difficulty: 2
+    min: 50
+    max: 80
+  - difficulty: 3
+    min: 70
+    max: 99

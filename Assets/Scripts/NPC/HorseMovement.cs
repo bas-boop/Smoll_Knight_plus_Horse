@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace Baz_geluk9.HKU
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class HorseMovement : MonoBehaviour
+    public sealed class HorseMovement : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rigidbody;
         [SerializeField] private Transform player;
