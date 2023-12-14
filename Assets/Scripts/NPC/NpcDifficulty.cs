@@ -2,9 +2,9 @@
 {
     public enum NpcDifficulty
     {
-        Easy,
-        Medium,
-        Hard,
-        VeryHard
+        EASY,
+        MEDUIM,
+        HARD,
+        VERY_HARD
     }
 }

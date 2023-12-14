@@ -41,7 +41,7 @@ namespace Baz_geluk9.HKU
         }
 
         /// <summary>
-        /// Do not use, old function. Use GetRandomNumber(NpcDifficulty) instead
+        /// Do not use, old function. Use GetRandomNumber(NpcDifficulty) instead. This is still here because I like how the code looks :D
         /// </summary>
         private double GetRandomNumber(string difficulty)
         {
