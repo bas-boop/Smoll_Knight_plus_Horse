@@ -58,6 +58,8 @@ namespace Baz_geluk9.HKU
 
         public void StartQte()
         {
+            Debug.Log(keyToPress.GetStringValue());
+        
             if (parent is QuickTimeEventSystem)
                 _timer = QTE_TIME;
 

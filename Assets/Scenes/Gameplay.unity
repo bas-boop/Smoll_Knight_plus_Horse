@@ -123,6 +123,170 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &141135209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141135211}
+  - component: {fileID: 141135210}
+  m_Layer: 0
+  m_Name: QuickTimeEvent (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &141135210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141135209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de049b13a62b19f48aefd286ef484f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  keyToPress: 5
+  onWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146016092}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.BaseQuickTimeEventHolder, Assembly-CSharp
+        m_MethodName: IncreaseSuccessful
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2146016091}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.SpawnParticle, Assembly-CSharp
+        m_MethodName: SpawnParticles
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146016091}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.SpawnParticle, Assembly-CSharp
+        m_MethodName: SpawnParticles
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &141135211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141135209}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2146016093}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &171716655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5155658550607342950, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+  m_PrefabInstance: {fileID: 2146016090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &204473196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 204473198}
+  - component: {fileID: 204473197}
+  m_Layer: 0
+  m_Name: ScoreCalculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &204473197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204473196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511f12cac9b090b42836c66c0e88a6d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  qteSystem: {fileID: 2146016092}
+  horseStates: {fileID: 455994457}
+  horseMovement: {fileID: 455994458}
+  scoreMultiplier: 1.15
+  playerType: 0
+--- !u!4 &204473198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204473196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.242626, y: -1.4295853, z: 0.35988593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455994457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6765068478622511866, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+  m_PrefabInstance: {fileID: 1660720866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3eb60bf5337764880dac7979c19edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &455994458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+  m_PrefabInstance: {fileID: 1660720866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f48d087d77a20a42b16a5f766f13106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &593010984
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,8 +444,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+      propertyPath: onStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+      propertyPath: onStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 204473197}
+    - target: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
       propertyPath: onStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+      propertyPath: onStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CalculateScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+      propertyPath: onStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Baz_geluk9.HKU.ScoreCalculator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472597086549795900, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+      propertyPath: onStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6765068478622511866, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
       propertyPath: horseType
@@ -292,6 +476,94 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8be26db0b73e2174da42f9277dd523c0, type: 3}
+--- !u!1 &1945189247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945189249}
+  - component: {fileID: 1945189248}
+  m_Layer: 0
+  m_Name: QuickTimeEvent (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1945189248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945189247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de049b13a62b19f48aefd286ef484f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  keyToPress: 0
+  onWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146016092}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.BaseQuickTimeEventHolder, Assembly-CSharp
+        m_MethodName: IncreaseSuccessful
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2146016091}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.SpawnParticle, Assembly-CSharp
+        m_MethodName: SpawnParticles
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146016091}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.SpawnParticle, Assembly-CSharp
+        m_MethodName: SpawnParticles
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1945189249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945189247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2146016093}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140675067
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,8 +704,149 @@ PrefabInstance:
       propertyPath: m_Name
       value: QTE System
       objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: keyToPress
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2146016092}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2146016092}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartNextQte
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartNextQte
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Baz_geluk9.HKU.QuickTimeEventSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Baz_geluk9.HKU.QuickTimeEventSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503366813813614516, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508207164334042706, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: quickTimeEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508207164334042706, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: quickTimeEvents.Array.data[1]
+      value: 
+      objectReference: {fileID: 1945189248}
+    - target: {fileID: 8508207164334042706, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      propertyPath: quickTimeEvents.Array.data[2]
+      value: 
+      objectReference: {fileID: 141135210}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3027136682681177382, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1945189249}
+    - targetCorrespondingSourceObject: {fileID: 3027136682681177382, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 141135211}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5155658550607342950, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2146016094}
   m_SourcePrefab: {fileID: 100100000, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+--- !u!114 &2146016091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1292402219761800703, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+  m_PrefabInstance: {fileID: 2146016090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171716655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238789ff856e9e547afd20a5797792cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2146016092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8508207164334042706, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+  m_PrefabInstance: {fileID: 2146016090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171716655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7021f47769947174fb1d3b944bcff8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2146016093 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3027136682681177382, guid: 17d27c9eed2fb4248a2644e3d8d8cec1, type: 3}
+  m_PrefabInstance: {fileID: 2146016090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2146016094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171716655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9dc0d9102016a4284906e0289dcf13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  system: {fileID: 2146016092}
+  timeBetweenQte: 5
+  onCalledEveryQte:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 455994458}
+        m_TargetAssemblyTypeName: Baz_geluk9.HKU.HorseMovement, Assembly-CSharp
+        m_MethodName: StartWalking
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

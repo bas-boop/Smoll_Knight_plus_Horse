@@ -16,16 +16,24 @@ namespace Baz_geluk9.HKU
 
         [SerializeField] private QuickTimeEventSystem qteSystem;
         [SerializeField] private HorseStatesGenerator horseStates;
+        [SerializeField] private HorseMovement horseMovement;
 
         [SerializeField] private float scoreMultiplier = 0.15f;
         [Tooltip("Temp player horse type."), SerializeField] private HorseType playerType;
 
         private GameResult _gameResult;
+        private bool _isCalled;
 
         public void CalculateScore()
         {
+            if(_isCalled)
+                return;
+            _isCalled = true;
+            
             (double npcScore, HorseType npcType) = horseStates.GetNpcHorseStates();
             double playerScore = qteSystem.GetSuccessfulQtePercentage();
+                
+            Debug.Log("1, Player score: " + playerScore + "\nNPC score: " + npcScore);
 
             switch (GetHorseTypeResult(playerType, npcType))
             {
@@ -41,12 +49,26 @@ namespace Baz_geluk9.HKU
                     throw new ArgumentOutOfRangeException();
             }
 
+            Debug.Log("2, Player score: " + playerScore + "\nNPC score: " + npcScore);
+            
             if (playerScore > npcScore)
+            {
                 _gameResult = GameResult.PLAYER_WON;
+                horseMovement.FlyBack();
+            }
             else if (playerScore == npcScore)
+            {
                 _gameResult = GameResult.DRAW;
+                
+                // Maybe, depend what do we with a draw?
+                // horseMovement.StopWalking();
+                horseMovement.StartWalking(false);
+            }
             else if (playerScore < npcScore)
+            {
                 _gameResult = GameResult.NPC_WON;
+                horseMovement.StartWalking(false);
+            }
         }
 
         /// <summary>

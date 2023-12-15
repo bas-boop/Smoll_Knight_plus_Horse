@@ -22,7 +22,7 @@ namespace Baz_geluk9.HKU
 
         private void Update() // temp
         {
-            if (Input.GetKeyDown(KeyCode.Space)) 
+            if (Input.GetKeyDown(KeyCode.Backspace)) 
                 StartWalking(false);
         }
 
@@ -35,9 +35,9 @@ namespace Baz_geluk9.HKU
             StopWalking();
         }
 
-        public void StartWalking(bool hasWon)
+        public void StartWalking(bool checkToWin)
         {
-            isAllowedToMove = hasWon;
+            isAllowedToMove = checkToWin;
             rigidbody.ChangeVelocityX(speed);
             onStartWalking?.Invoke();
         }

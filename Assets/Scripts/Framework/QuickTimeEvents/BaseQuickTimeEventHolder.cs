@@ -18,10 +18,7 @@ namespace Baz_geluk9.HKU
             }
         }
 
-        public void IncreaseSuccessful()
-        {
-            p_successfulQte++;
-        }
+        public void IncreaseSuccessful() => p_successfulQte++;
 
         public abstract void StartNextQte();
         
@@ -33,5 +30,7 @@ namespace Baz_geluk9.HKU
             double successPercentage = (double)(p_successfulQte + 1)/ quickTimeEvents.Length * 100.0;
             return successPercentage;
         }
+        
+        public int GetQteListLength() => quickTimeEvents.Length;
     }
 }
