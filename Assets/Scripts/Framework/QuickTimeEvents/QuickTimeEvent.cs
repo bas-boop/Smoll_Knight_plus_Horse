@@ -8,26 +8,24 @@ namespace Baz_geluk9.HKU
 {
     public sealed class QuickTimeEvent : MonoBehaviour
     {
+        [Header("References")]
         [HideInInspector] public BaseQuickTimeEventHolder parent;
         [SerializeField] private QuickTimeEventBar bar;
+        [SerializeField] private QuickTimeEventKey key;
 
+        [Header("Values")]
         [Tooltip("The assigned key to press to succeed the quick time event.")]
         public KeyCodeQTE keyToPress;
 
         [Tooltip("The time assigned to the timer.")]
         [Range(0, 10)] private const float QTE_TIME = 5;
 
-        [Space]
+        [Space(20)]
         [SerializeField] private UnityEvent onWin = new();
         [SerializeField] private UnityEvent onLose = new();
         
         private float _timer;
         private bool _isStarted;
-
-        private void Awake()
-        {
-            // todo: key image
-        }
 
         private void Update()
         {
@@ -63,11 +61,10 @@ namespace Baz_geluk9.HKU
 
         public void StartQte()
         {
-            Debug.Log(keyToPress.GetStringValue());
-        
             if (parent is QuickTimeEventSystem)
                 _timer = QTE_TIME;
 
+            key.SetText(keyToPress.GetStringValue());
             bar.SetupBar();
             _isStarted = true;
         }
@@ -75,6 +72,7 @@ namespace Baz_geluk9.HKU
         private void StopQte()
         {
             _isStarted = false;
+            key.TurnOffText();
             bar.ToggleVisibility();
         }
 

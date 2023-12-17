@@ -4,8 +4,6 @@ namespace Baz_geluk9.HKU
 {
     public sealed class QuickTimeEventSystem : BaseQuickTimeEventHolder
     {
-        // [SerializeField] private QuickTimeEventGroup quickTimeEventsGroup;
-
         private int _currentQteToCall;
 
         private void Awake()
