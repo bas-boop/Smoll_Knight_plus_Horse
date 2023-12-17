@@ -1,5 +1,6 @@
 using System;
 using Baz_geluk9.Extensions;
+using Baz_geluk9.HKU.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,7 @@ namespace Baz_geluk9.HKU
     public sealed class QuickTimeEvent : MonoBehaviour
     {
         [HideInInspector] public BaseQuickTimeEventHolder parent;
+        [SerializeField] private QuickTimeEventBar bar;
 
         [Tooltip("The assigned key to press to succeed the quick time event.")]
         public KeyCodeQTE keyToPress;
@@ -52,8 +54,11 @@ namespace Baz_geluk9.HKU
                 return;
             }
 
-            if (parent is QuickTimeEventSystem)
-                _timer -= Time.deltaTime;
+            if (parent is not QuickTimeEventSystem) 
+                return;
+            
+            _timer -= Time.deltaTime;
+            SetUi();
         }
 
         public void StartQte()
@@ -63,12 +68,20 @@ namespace Baz_geluk9.HKU
             if (parent is QuickTimeEventSystem)
                 _timer = QTE_TIME;
 
+            bar.SetupBar();
             _isStarted = true;
         }
 
         private void StopQte()
         {
             _isStarted = false;
+            bar.ToggleVisibility();
+        }
+
+        private void SetUi()
+        {
+            float a = _timer / QTE_TIME;
+            bar.SetFillAmount(a);
         }
     }
 }

@@ -20,9 +20,9 @@ namespace Baz_geluk9.HKU
             for (int i = 0; i < qteListLength; i++)
             {
                 yield return StartCoroutine(CallQte(currentTimeBetweenQte));
-                // currentTimeBetweenQte += timeBetweenQte;
 
-                if (i != qteListLength - 1) continue;
+                if (i != qteListLength - 1)
+                    continue;
                 
                 yield return new WaitForSeconds(timeBetweenQte);
                 onCalledEveryQte?.Invoke();

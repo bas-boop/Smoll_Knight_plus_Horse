@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Baz_geluk9.HKU
 {
@@ -16,10 +15,13 @@ namespace Baz_geluk9.HKU
 
         [SerializeField] private QuickTimeEventSystem qteSystem;
         [SerializeField] private HorseStatesGenerator horseStates;
-        [SerializeField] private HorseMovement horseMovement;
 
         [SerializeField] private float scoreMultiplier = 0.15f;
         [Tooltip("Temp player horse type."), SerializeField] private HorseType playerType;
+
+        [SerializeField] private UnityEvent onDraw;
+        [SerializeField] private UnityEvent onPlayerWon;
+        [SerializeField] private UnityEvent onNpcWon;
 
         private GameResult _gameResult;
         private bool _isCalled;
@@ -54,20 +56,17 @@ namespace Baz_geluk9.HKU
             if (playerScore > npcScore)
             {
                 _gameResult = GameResult.PLAYER_WON;
-                horseMovement.FlyBack();
+                onPlayerWon?.Invoke();
             }
             else if (playerScore == npcScore)
             {
                 _gameResult = GameResult.DRAW;
-                
-                // Maybe, depend what do we with a draw?
-                // horseMovement.StopWalking();
-                horseMovement.StartWalking(false);
+                onDraw?.Invoke();
             }
             else if (playerScore < npcScore)
             {
                 _gameResult = GameResult.NPC_WON;
-                horseMovement.StartWalking(false);
+                onNpcWon?.Invoke();
             }
         }
 
