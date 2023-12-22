@@ -2,7 +2,7 @@ using Baz_geluk9.Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class HorseMovement : MonoBehaviour

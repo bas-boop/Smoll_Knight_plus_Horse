@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     /// <summary>
     /// This class is unused and not working as intended.

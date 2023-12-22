@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     public sealed class HorseStatesGenerator : MonoBehaviour
     {

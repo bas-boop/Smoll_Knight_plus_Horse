@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     public sealed class SceneSwitcher : MonoBehaviour
     {

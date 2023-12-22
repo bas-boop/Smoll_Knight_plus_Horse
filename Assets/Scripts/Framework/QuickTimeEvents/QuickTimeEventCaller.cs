@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     public sealed class QuickTimeEventCaller : MonoBehaviour
     {
@@ -31,7 +31,7 @@ namespace Baz_geluk9.HKU
 
         private IEnumerator CallQte(float timeBetween)
         {
-            yield return new WaitForSeconds(timeBetween);
+            yield return new WaitForSeconds(timeBetween + 0.01f);
             system.StartNextQte();    
         }
     }

@@ -1,10 +1,10 @@
 using System;
 using Baz_geluk9.Extensions;
-using Baz_geluk9.HKU.UI;
+using Baz_geluk9.SKPH.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     public sealed class QuickTimeEvent : MonoBehaviour
     {
@@ -35,8 +35,8 @@ namespace Baz_geluk9.HKU
             if (parent is QuickTimeEventSystem
                 && _timer <= 0)
             {
-                onLose?.Invoke();
                 StopQte();
+                onLose?.Invoke();
                 return;
             }
             

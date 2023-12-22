@@ -2,7 +2,7 @@ using Baz_geluk9.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Baz_geluk9.HKU.UI
+namespace Baz_geluk9.SKPH.UI
 {
     public sealed class QuickTimeEventBar : MonoBehaviour
     {

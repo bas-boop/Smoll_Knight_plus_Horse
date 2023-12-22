@@ -1,8 +1,9 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Baz_geluk9.HKU
+namespace Baz_geluk9.SKPH
 {
     public sealed class ScoreCalculator : GetPlayerSettings
     {
@@ -14,6 +15,7 @@ namespace Baz_geluk9.HKU
         [SerializeField] private UnityEvent onDraw;
         [SerializeField] private UnityEvent onPlayerWon;
         [SerializeField] private UnityEvent onNpcWon;
+        [SerializeField] private UnityEvent onLater;
 
         private bool _isCalled;
 
@@ -61,6 +63,7 @@ namespace Baz_geluk9.HKU
                 onGameResult = onDraw;
 
             onGameResult?.Invoke();
+            StartCoroutine(CallLaterEvent());
         }
 
         /// <summary>
@@ -93,5 +96,11 @@ namespace Baz_geluk9.HKU
                 HorseType.DEFENCE => npc == HorseType.POWER,
                 _ => false
             };
+
+        private IEnumerator CallLaterEvent()
+        {
+            yield return new WaitForSeconds(2);
+            onLater?.Invoke();
+        }
     }
 }

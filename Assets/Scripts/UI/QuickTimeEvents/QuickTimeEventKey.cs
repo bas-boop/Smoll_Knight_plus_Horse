@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Baz_geluk9.HKU.UI
+namespace Baz_geluk9.SKPH.UI
 {
     public sealed class QuickTimeEventKey : MonoBehaviour
     {

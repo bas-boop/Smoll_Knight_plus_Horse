@@ -1,4 +1,4 @@
-﻿namespace Baz_geluk9.HKU
+﻿namespace Baz_geluk9.SKPH
 {
     public enum NpcDifficulty
     {
