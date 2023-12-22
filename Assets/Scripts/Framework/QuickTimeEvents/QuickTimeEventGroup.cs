@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Baz_geluk9.HKU
 {
+    /// <summary>
+    /// This class is unused and not working as intended.
+    /// </summary>
     public sealed class QuickTimeEventGroup : BaseQuickTimeEventHolder
     {
         [Range(0, 15)] private const float QTE_TIME = 5;

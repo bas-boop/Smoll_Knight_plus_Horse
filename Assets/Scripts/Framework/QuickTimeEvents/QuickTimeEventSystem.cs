@@ -15,21 +15,6 @@ namespace Baz_geluk9.HKU
                 quickTimeEventsGroup.Init();*/
         }
 
-        /// <summary>
-        /// Input checks to test stuff
-        /// </summary>
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) 
-                StartNextQte();
-            
-            if(Input.GetKeyDown(KeyCode.LeftShift))
-                Debug.Log(GetSuccessfulQtePercentage());
-            
-            /*if (Input.GetKeyDown(KeyCode.Backspace)) 
-                quickTimeEventsGroup.StartQteGroup();*/
-        }
-
         public override void StartNextQte()
         {
             if (p_isStarted

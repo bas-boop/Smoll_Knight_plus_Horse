@@ -2,6 +2,7 @@
 {
     public enum HorseType
     {
+        NONE,
         SPEED,
         POWER,
         DEFENCE

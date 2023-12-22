@@ -1,21 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Baz_geluk9.HKU
 {
-    public sealed class HorseSelector : MonoBehaviour
+    public sealed class HorseSelector : GetPlayerSettings
     {
-        [SerializeField] private HorseType playerHorse;
-
-        private DontDestroyOnLoad _test;
-            
-        private void Awake()
+        public void SetPlayerHorseType(int targetType)
         {
-            _test = FindObjectOfType<DontDestroyOnLoad>();
-            Debug.Log(_test.name);
+            if (Enum.IsDefined(typeof(HorseType), targetType))
+                SetPlayerHorseType((HorseType)targetType);
+            else
+                Debug.LogError($"Invalid HorseType value: {targetType}");
         }
 
+        public void SetPlayerHorseType(HorseType targetType) => p_playerSettings.PlayerHorseType = targetType;
     }
 }

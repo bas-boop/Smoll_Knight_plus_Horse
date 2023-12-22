@@ -4,28 +4,26 @@ using UnityEngine.Events;
 
 namespace Baz_geluk9.HKU
 {
-    public sealed class ScoreCalculator : MonoBehaviour
+    public sealed class ScoreCalculator : GetPlayerSettings
     {
+        [SerializeField] private QuickTimeEventSystem qteSystem;
+        [SerializeField] private HorseStatesGenerator horseStates;
+
+        [SerializeField] private float scoreMultiplier = 0.15f;
+
+        [SerializeField] private UnityEvent onDraw;
+        [SerializeField] private UnityEvent onPlayerWon;
+        [SerializeField] private UnityEvent onNpcWon;
+
+        private bool _isCalled;
+
         private enum GameResult
         {
             DRAW,
             PLAYER_WON,
             NPC_WON
         }
-
-        [SerializeField] private QuickTimeEventSystem qteSystem;
-        [SerializeField] private HorseStatesGenerator horseStates;
-
-        [SerializeField] private float scoreMultiplier = 0.15f;
-        [Tooltip("Temp player horse type."), SerializeField] private HorseType playerType;
-
-        [SerializeField] private UnityEvent onDraw;
-        [SerializeField] private UnityEvent onPlayerWon;
-        [SerializeField] private UnityEvent onNpcWon;
-
-        private GameResult _gameResult;
-        private bool _isCalled;
-
+        
         public void CalculateScore()
         {
             if(_isCalled)
@@ -37,7 +35,7 @@ namespace Baz_geluk9.HKU
                 
             Debug.Log("1, Player score: " + playerScore + "\nNPC score: " + npcScore);
 
-            switch (GetHorseTypeResult(playerType, npcType))
+            switch (GetHorseTypeResult(p_playerSettings.PlayerHorseType, npcType))
             {
                 case GameResult.DRAW:
                     break;
@@ -45,29 +43,24 @@ namespace Baz_geluk9.HKU
                     playerScore *= scoreMultiplier;
                     break;
                 case GameResult.NPC_WON:
-                    playerScore *= -scoreMultiplier;
+                    playerScore /= scoreMultiplier;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
             Debug.Log("2, Player score: " + playerScore + "\nNPC score: " + npcScore);
+
+            UnityEvent onGameResult = new();
             
             if (playerScore > npcScore)
-            {
-                _gameResult = GameResult.PLAYER_WON;
-                onPlayerWon?.Invoke();
-            }
-            else if (playerScore == npcScore)
-            {
-                _gameResult = GameResult.DRAW;
-                onDraw?.Invoke();
-            }
+                onGameResult = onPlayerWon;
             else if (playerScore < npcScore)
-            {
-                _gameResult = GameResult.NPC_WON;
-                onNpcWon?.Invoke();
-            }
+                onGameResult = onNpcWon;
+            else
+                onGameResult = onDraw;
+
+            onGameResult?.Invoke();
         }
 
         /// <summary>
@@ -78,7 +71,9 @@ namespace Baz_geluk9.HKU
         /// <returns>The result of the game: DRAW, PLAYER_WON, or NPC_WON.</returns>
         private GameResult GetHorseTypeResult(HorseType player, HorseType npc)
         {
-            if (player == npc)
+            if (player == HorseType.NONE
+                || npc == HorseType.NONE
+                || player == npc)
                 return GameResult.DRAW;
 
             return DetermineWinner(player, npc) ? GameResult.PLAYER_WON : GameResult.NPC_WON;
@@ -90,15 +85,13 @@ namespace Baz_geluk9.HKU
         /// <param name="player">The player's horse type.</param>
         /// <param name="npc">The NPC's horse type.</param>
         /// <returns>True if the player wins, false otherwise.</returns>
-        private bool DetermineWinner(HorseType player, HorseType npc)
-        {
-            return player switch
+        private bool DetermineWinner(HorseType player, HorseType npc) 
+            => player switch
             {
                 HorseType.POWER => npc == HorseType.SPEED,
                 HorseType.SPEED => npc == HorseType.DEFENCE,
                 HorseType.DEFENCE => npc == HorseType.POWER,
                 _ => false
             };
-        }
     }
 }
