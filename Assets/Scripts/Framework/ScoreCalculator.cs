@@ -34,8 +34,6 @@ namespace Baz_geluk9.SKPH
             
             (double npcScore, HorseType npcType) = horseStates.GetNpcHorseStates();
             double playerScore = qteSystem.GetSuccessfulQtePercentage();
-                
-            Debug.Log("1, Player score: " + playerScore + "\nNPC score: " + npcScore);
 
             switch (GetHorseTypeResult(p_playerSettings.PlayerHorseType, npcType))
             {
@@ -50,8 +48,6 @@ namespace Baz_geluk9.SKPH
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
-            Debug.Log("2, Player score: " + playerScore + "\nNPC score: " + npcScore);
 
             UnityEvent onGameResult = new();
             

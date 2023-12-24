@@ -1,3 +1,4 @@
+using System.Collections;
 using Baz_geluk9.Extensions;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,6 +11,8 @@ namespace Baz_geluk9.SKPH
         [SerializeField] private Rigidbody2D rigidbody;
         [SerializeField] private Transform player;
         [SerializeField, Range(0, -30)] private float speed;
+        [SerializeField, Range(0, 10)] private float speedMultiplier;
+        [SerializeField, Range(0, 10)] private float stopFlyingWaitTime = 5;
         [SerializeField] private Vector2 flyBackDirection;
         [SerializeField] private bool isAllowedToMove;
         
@@ -18,12 +21,6 @@ namespace Baz_geluk9.SKPH
         [SerializeField] private UnityEvent onStartWalking = new();
         [SerializeField] private UnityEvent onStopWalking = new();
         [SerializeField] private UnityEvent onFlyingBack = new();
-
-        private void Update() // temp
-        {
-            if (Input.GetKeyDown(KeyCode.Backspace)) 
-                StartWalking(false);
-        }
 
         private void FixedUpdate()
         {
@@ -37,7 +34,7 @@ namespace Baz_geluk9.SKPH
         public void StartWalking(bool checkToWin)
         {
             isAllowedToMove = checkToWin;
-            rigidbody.ChangeVelocityX(speed);
+            rigidbody.ChangeVelocityX(checkToWin ? speed : speed * speedMultiplier);
             onStartWalking?.Invoke();
         }
 
@@ -52,7 +49,15 @@ namespace Baz_geluk9.SKPH
         {
             rigidbody.AddForce(flyBackDirection);
             rigidbody.gravityScale = 0.1f;
+            StartCoroutine(StopFlying());
             onFlyingBack?.Invoke();
+        }
+
+        private IEnumerator StopFlying()
+        {
+            yield return new WaitForSeconds(stopFlyingWaitTime);
+            rigidbody.velocity = Vector2.zero;
+            rigidbody.gravityScale = 0;
         }
     }
 }

@@ -129,6 +129,7 @@ MonoBehaviour:
   rigidbody: {fileID: 2038575598405431469}
   player: {fileID: 0}
   speed: -2
+  speedMultiplier: 5
   flyBackDirection: {x: 250, y: 100}
   isAllowedToMove: 0
   onStartWalking:

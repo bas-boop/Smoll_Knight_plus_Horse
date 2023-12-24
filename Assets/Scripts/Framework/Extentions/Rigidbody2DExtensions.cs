@@ -7,8 +7,7 @@ namespace Baz_geluk9.Extensions
         public static void ChangeVelocity(this Rigidbody2D rigidbody, Vector2 v)
         {
             Vector2 newVelocity = rigidbody.velocity;
-            newVelocity.ChangeX(v.x);
-            newVelocity.ChangeY(v.y);
+            newVelocity.ChangeX(v.x).ChangeY(v.y);
             rigidbody.velocity = newVelocity;
         }
         
