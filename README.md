@@ -27,8 +27,9 @@ This is a game made for my admission for HKU (HBO education). With the theme "ho
 [Enum](Assets/Scripts/Framework/Extentions/EnumExtensions.cs)<br>
 [String attribute](Assets/Scripts/Framework/Extentions/Attributes/StringValueAttribute.cs)<br>
 [Char attribute](Assets/Scripts/Framework/Extentions/Attributes/CharValueAttribute.cs)<br>
+### Environment
+[Parallax effect](Assets/Scripts/Environment/ParallaxEffect.cs)<br>
+[Particle spawner](Assets/Scripts/Environment/SpawnParticle.cs)<br>
 ### Utils
-[Particle spawner](Assets/Scripts/Enviorment/SpawnParticle.cs)<br>
 [Dont destroy on load](Assets/Scripts/Framework/DontDestroyOnLoad.cs)<br>
 [Scene switcher](Assets/Scripts/Framework/SceneSwitcher.cs)<br>
-
