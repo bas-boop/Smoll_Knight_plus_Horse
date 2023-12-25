@@ -30,7 +30,7 @@ namespace Baz_geluk9.SKPH.UI
         /// <param name="fillAmount">The the fill.</param>
         public void SetFillAmount(float fillAmount)
         {
-            _barScale.ChangeX(fillAmount);
+            _barScale.SetX(fillAmount);
             _fill.localScale = _barScale;
             ChangeColor();
         }
