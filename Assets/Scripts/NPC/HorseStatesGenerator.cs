@@ -24,15 +24,14 @@ namespace Baz_geluk9.SKPH
         /// 
         /// </summary>
         /// <returns>The percentage of how well the NPC did. And the NPC difficulty it has.</returns>
-        public (double, HorseType) GetNpcHorseStates()
-        {
-            return (GetRandomNumber(_npcDifficulty), horseType);
-        }
+        public (double, HorseType) GetNpcHorseStates() => (GetRandomNumber(_npcDifficulty), horseType);
+
+        public HorseType GetHorseType() => horseType;
 
         public void SetNpcDifficulty(NpcDifficulty targetDifficulty) => _npcDifficulty = targetDifficulty;
         
         public void SetNpcDifficulty(int targetDifficulty) => _npcDifficulty = difficultyRanges[targetDifficulty].difficulty;
-        
+
         private double GetRandomNumber(NpcDifficulty difficulty)
         {
             return difficultyRanges.Where(range => range.difficulty == difficulty)

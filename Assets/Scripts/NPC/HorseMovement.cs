@@ -10,6 +10,7 @@ namespace Baz_geluk9.SKPH
     {
         [SerializeField] private Rigidbody2D rigidbody;
         [SerializeField] private Transform player;
+        [SerializeField, Range(0, 5)] private float playerInRangeMargin = 1;
         [SerializeField, Range(0, -30)] private float speed;
         [SerializeField, Range(0, 10)] private float speedMultiplier;
         [SerializeField, Range(0, 10)] private float stopFlyingWaitTime = 5;
@@ -25,7 +26,7 @@ namespace Baz_geluk9.SKPH
         private void FixedUpdate()
         {
             if (!isAllowedToMove
-                || !transform.position.CompareX(player.position, 1f))
+                || !transform.position.CompareX(player.position, playerInRangeMargin))
                 return;
             
             StopWalking();
