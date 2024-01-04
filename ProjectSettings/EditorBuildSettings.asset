@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Horse selector.unity
     guid: 4d4ed367aea7b554d8b5aa65d672fac1
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
+    path: Assets/Scenes/Levels/Gameplay.unity
     guid: 3c3885eb8cffeed499d91c1ea50883b0
+  - enabled: 1
+    path: Assets/Scenes/Levels/GameplayEasy.unity
+    guid: fe079fce434702a41b0969d3dc2de094
+  - enabled: 1
+    path: Assets/Scenes/Levels/GameplayMedium.unity
+    guid: c73d1e6c65e58e645bcb7d847dd5ccd7
+  - enabled: 1
+    path: Assets/Scenes/Levels/GameplayHard.unity
+    guid: a314a2424ceb8f54dbe0883b13f8c426
+  - enabled: 1
+    path: Assets/Scenes/Levels/GameplayVeryHard.unity
+    guid: 503ae807beb41e04e9b4e106cf925ce1
   m_configObjects: {}

@@ -16,21 +16,16 @@ namespace Baz_geluk9.SKPH
         }
 
         [SerializeField] private HorseType horseType;
+        [SerializeField] private NpcDifficulty npcDifficulty;
         [SerializeField] private List<DifficultyRange> difficultyRanges;
-
-        private NpcDifficulty _npcDifficulty;
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns>The percentage of how well the NPC did. And the NPC difficulty it has.</returns>
-        public (double, HorseType) GetNpcHorseStates() => (GetRandomNumber(_npcDifficulty), horseType);
+        public (double, HorseType) GetNpcHorseStates() => (GetRandomNumber(npcDifficulty), horseType);
 
         public HorseType GetHorseType() => horseType;
-
-        public void SetNpcDifficulty(NpcDifficulty targetDifficulty) => _npcDifficulty = targetDifficulty;
-        
-        public void SetNpcDifficulty(int targetDifficulty) => _npcDifficulty = difficultyRanges[targetDifficulty].difficulty;
 
         private double GetRandomNumber(NpcDifficulty difficulty)
         {
