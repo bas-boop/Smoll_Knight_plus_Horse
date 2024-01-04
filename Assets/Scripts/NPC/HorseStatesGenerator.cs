@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Baz_geluk9.Extensions;
 
 namespace Baz_geluk9.SKPH
 {
@@ -19,6 +20,8 @@ namespace Baz_geluk9.SKPH
         [SerializeField] private NpcDifficulty npcDifficulty;
         [SerializeField] private List<DifficultyRange> difficultyRanges;
 
+        private void Awake() => SetHorseTypeRandom();
+
         /// <summary>
         /// 
         /// </summary>
@@ -26,6 +29,18 @@ namespace Baz_geluk9.SKPH
         public (double, HorseType) GetNpcHorseStates() => (GetRandomNumber(npcDifficulty), horseType);
 
         public HorseType GetHorseType() => horseType;
+
+        private void SetHorseTypeRandom()
+        {
+            HorseType randomEnumValue = EnumExtensions.GetRandomEnumValue<HorseType>();
+            while (randomEnumValue == HorseType.NONE)
+            {
+                randomEnumValue = EnumExtensions.GetRandomEnumValue<HorseType>();
+                if (randomEnumValue != HorseType.NONE)
+                    break;
+            }
+            horseType = randomEnumValue;
+        }
 
         private double GetRandomNumber(NpcDifficulty difficulty)
         {

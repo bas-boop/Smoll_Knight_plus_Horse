@@ -30,6 +30,8 @@ This is a game made for my admission for HKU (HBO education). With the theme "ho
 ### Environment
 [Parallax effect](Assets/Scripts/Environment/ParallaxEffect.cs)<br>
 [Particle spawner](Assets/Scripts/Environment/SpawnParticle.cs)<br>
+[Change color](Assets/Scripts/Environment/ChangeColor.cs)<br>
+[Random sprite selector](Assets/Scripts/Environment/RandomSpriteSelector.cs)<br>
 ### Utils
 [Dont destroy on load](Assets/Scripts/Framework/DontDestroyOnLoad.cs)<br>
 [Scene switcher](Assets/Scripts/Framework/SceneSwitcher.cs)<br>

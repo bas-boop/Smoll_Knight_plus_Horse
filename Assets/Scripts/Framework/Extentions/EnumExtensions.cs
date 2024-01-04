@@ -32,5 +32,12 @@ namespace Baz_geluk9.Extensions
 
             return attribute?.Value ?? '\0'; // '\0' is a default value if the attribute is not found
         }
+        
+        public static T GetRandomEnumValue<T>()
+        {
+            Array enumValues = Enum.GetValues(typeof(T));
+            Random random = new Random();
+            return (T)enumValues.GetValue(random.Next(enumValues.Length));
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Baz_geluk9.SKPH
 
         private IEnumerator CallQte(float timeBetween)
         {
-            yield return new WaitForSeconds(timeBetween + 0.01f);
+            yield return new WaitForSeconds(timeBetween + 0.001f);
             system.StartNextQte();    
         }
     }

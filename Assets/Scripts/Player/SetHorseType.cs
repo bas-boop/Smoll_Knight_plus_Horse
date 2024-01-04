@@ -15,17 +15,18 @@ namespace Baz_geluk9.SKPH
         
         private new void Awake()
         {
-            if (isPlayer)
-            {
-                base.Awake();
-                _horseType = p_playerSettings.PlayerHorseType;
-            }
-            else
-                _horseType = GetComponent<HorseStatesGenerator>().GetHorseType();
+            if (!isPlayer)
+                return;
+            
+            base.Awake();
+            _horseType = p_playerSettings.PlayerHorseType;
         }
         
         private void Start()
         {
+            if (!isPlayer)
+                _horseType = GetComponent<HorseStatesGenerator>().GetHorseType();
+            
             switch (_horseType)
             {
                 case HorseType.NONE:
