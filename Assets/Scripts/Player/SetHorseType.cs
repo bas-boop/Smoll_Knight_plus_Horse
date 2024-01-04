@@ -10,6 +10,8 @@ namespace Baz_geluk9.SKPH
         [SerializeField] private bool isPlayer;
 
         private HorseType _horseType;
+        private GameObject _currentVisual;
+        private const string ANIMATION_TO_PLAY = "End";
         
         private new void Awake()
         {
@@ -27,20 +29,24 @@ namespace Baz_geluk9.SKPH
             switch (_horseType)
             {
                 case HorseType.NONE:
-                    horseVisuals[0].SetActive(true);
+                    _currentVisual = horseVisuals[0];
                     break;
                 case HorseType.SPEED:
-                    horseVisuals[1].SetActive(true);
+                    _currentVisual = horseVisuals[1];
                     break;
                 case HorseType.POWER:
-                    horseVisuals[2].SetActive(true);
+                    _currentVisual = horseVisuals[2];
                     break;
                 case HorseType.DEFENCE:
-                    horseVisuals[3].SetActive(true);
+                    _currentVisual = horseVisuals[3];
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            _currentVisual.SetActive(true);
         }
+
+        public void PlayLance() => _currentVisual.GetComponentInChildren<Animator>().Play(ANIMATION_TO_PLAY);
     }
 }
