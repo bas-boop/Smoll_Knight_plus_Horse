@@ -22,10 +22,6 @@ namespace Baz_geluk9.SKPH
 
         private void Awake() => SetHorseTypeRandom();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>The percentage of how well the NPC did. And the NPC difficulty it has.</returns>
         public (double, HorseType) GetNpcHorseStates() => (GetRandomNumber(npcDifficulty), horseType);
 
         public HorseType GetHorseType() => horseType;
